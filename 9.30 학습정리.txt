@@ -1,0 +1,46 @@
+1. HelloWorld 를 출력하는 프로그램의 과정을 설명하시오.
+
+우선 컴퓨터에 JDK(Java Development Kit)를 설치한다.
+그 후 JVM(java virtual machine) 중 하나인 eclipse를 설치한다.
+
+HelloWorld를 출력하기 위해서는 크게 3가지 단계를 거쳐야한다.
+① .java라는 소스 코드를 만든다.
+eclipse를 실행 후 file → new에서 java project를 눌러 HelloWorld라는
+프로젝트를 생성한다.
+생성된 프로젝트 아래 scr 폴더에 new → class를 눌러 파일명 Hello를 생성한다.
+그 후 라는 코드를 작성 후 ctrl + s를 눌러 저장한다.
+
+②코드 컴파일
+eclipse를 사용하면 실행버튼을 누르는 것으로 .java 파일을 .class 파일로 변환해
+바로 실행해준다.
+이 과정을 명령 프롬프트(Win + R)을 통해 진행할 수도 있다.
+Hello.java파일에 마우스 우클릭 Show In → Terminal을 누른 후
+
+C:\Users\samsung\eclipse-workspace\HelloWorld\src>javac Hello.java
+
+javac Hello.java를 입력하면 .java파일을 .class 파일로 변경해 저장해준다.
+
+
+③파일 실행
+그 후
+C:\Users\samsung\eclipse-workspace\HelloWorld\src>java Hello
+
+java Hello를 입력하면 하단에 Hello World가 출력되는 것을 볼 수 있다.
+
+
+2. 아래의 명령어를 설명하시오(뭐 하는 건가).
+-javac
+javac에서 compile 컴파일의 약자로
+.java라는 인간이 알아들을 수 있는 언어로 저장된 것을
+CPU가 알아들을 수 있는 2진법으로 변경해 .class 저장한다.
+
+-java
+자바 프로그램(.class 파일) 실행
+
+3. 컴파일이란 무엇인가요?
+인간이 알아들을 수 있는 언어가 아니라 CPU가 알아들을 수 있는 2진법으로 
+변경해 주는 것을 컴파일 (javac)라고 한다.
+
+
+4. java 언어를 창시한 사람은?
+제임스 아서 고슬링 James Arthur Gosling
