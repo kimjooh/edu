@@ -1,0 +1,187 @@
+1.  아래가 에러가 나는 이유를 설명하고, 수정 하시오.
+short num = 1;
+short num = -num;
+
+변수를 음수로 바꾸게 되면 내부적으로는 연산을 통해 바뀌게 된다. short num = -num;이 단순히 정수에 -기호를 붙이는 것이 아니라 (-1 * num)이라는 연산과정을 통해 음수가 된다.
+
+따라서 short num = (short)(-num);으로 형 변환을 시켜줘야 한다.
+
+ 
+
+
+2. 전위 증가 연산자와 후위 증가 연산자의 차이는?
+
+전위 연산자는 먼저 연산을 한 후에 출력되고, 후위 연산자는 출력을 먼저 한 후에 연산을 진행한다.
+
+ 
+
+
+3. 아래의 비트 연산자 4가지를 설명하시오.
+& | ^ ~
+
+& : (&&와는 다름) 비트 단위로 AND 연산을 한다. 두 비트가 0이면 0,  1이면 1이다. 두 비트가 다르면 0이 된다. 자바보다는 c, c++에서 자두 사용된다. 
+| : 비트 단위로 OR 연산을 한다. 두 비트가 1이면 1, 0이면 0이다.  두 비트가 다르면 1이다.
+^ : 비트 단위로 XOR 연산을 한다. 두 비트가 다르면 1,  같으면 0 이다.
+~ : 비트 단위 연산 결과를 반전시킨다. 1이면 0, 0이면 1 이다.
+ 
+
+
+4. 아래의 쉬프트 연산자에 대하여 설명하시오.
+<<                          >>
+
+<< : 비트 열을 왼쪽으로 이동 시킨다. 2배 증가 시킨 값이 나온다.
+>> : 비트 열을 오른쪽으로 이동 시킨다. 2로 나눈 값이 나온다.
+
+
+5. 아래의 출력값을 예측하시오.
+
+class Today {
+	public static void main(String[] args) {
+		int num1 = 10, num2 = 20, num3 = 30;
+		num1 = num2 = num3;    
+
+    System.out.println(num1);
+    System.out.println(num2);
+    System.out.println(num3);
+	}
+}
+System.out.println(num1);  →  30
+System.out.println(num2);  →  30
+System.out.println(num3);  →  30
+
+연산자의 우선순위가 동일할 경우에는 결합방향으로 진행한다. =(대입 연산자)의 경우에는 오른쪽의 값을 왼쪽에 대입하는 것으로 결합 방향은 오른쪽에서 왼쪽 ← 이다.  따라서 num1 ← num2 ← num3 방향으로 진행된다.
+
+① num3 값을 num2에 넣어준다. → num2는 30이 된다.
+
+② ①을 실행한 num2 값(30)을 num1에 넣어준다. → num1은 30이 된다.
+
+
+6.아래의 출력값을 예측하시오.
+
+class Today2 {
+	public static void main(String[] args) {
+		int result = 3 + 6;
+		System.out.println("3 + 6 = " + result);  
+  
+		result += 9;
+    		System.out.println("3 + 6 + 9 = " + result);
+    
+   		result += 12;
+    		System.out.println("3 + 6 + 9 + 12 = " + result);
+	}
+}
+System.out.println("3 + 6 = " + result);   →  3 + 6 = 9
+System.out.println("3 + 6 + 9 = " + result);  →  3 + 6 + 9 = 18
+System.out.println("3 + 6 + 9 + 12 = " + result);  →  3 + 6 + 9 + 12 = 30
+
+
+ 
+
+7. 조건문의 3가지 종류를 나열하고 설명하시오.
+
+조건문은 if, else, else if 3가지가 있다.
+
+if : if(    ){   }의 형태로 (   )안에는 true나 false가 나오는 값이 들어간다. 이 값이 true가 나오면 {    } 안의 코드를 실행한다.
+else : else{     }의 형태로  if와 함께 사용되는데 if(    )안의 값이 false가 나올 경우 else{    } 안의 코드를 실행한다.
+else if : else if(     ){       }  의 형태로 if문과 동일하게 동작한다. 대신 else if는 if, else 와는 달리 중간에 얼마든지 추가가 가능하다.
+ 
+
+ 
+
+
+8.  조건문의 3가지 종류를 나열하고 설명하시오.
+ 아래의 프로그램을 짜시오.
+ 국어:80 수학:80 영어:60 총점과 평균을 출력하고, 
+ 평균에 따른 수우미양가를 출력 하시오.
+
+public class Today3 {
+
+	public static void main(String[] args) {
+		int kor = 80;
+		int math = 80;
+		int eng = 60;
+		
+		int total = (kor + eng + math);
+		double avg = (total / 3.0);
+		
+		System.out.println("평균은 " + avg);  // 평균은 73.33333333333333
+		
+		if(avg >= 90) {
+			System.out.println("수");
+		}
+		else if(avg >= 80) {
+			System.out.println("우");
+		}
+		else if(avg >= 70) {
+			System.out.println("미");
+		}
+		else {
+			System.out.println("가");
+		}
+	}  // 미 입니다.
+
+}
+평균은 73.33333333333333
+미 입니다.
+
+ 
+
+ 
+
+
+9. int 변수 3개 선언 
+임의 값 집어 넣음
+그중 3개의 값중 최대값을 출력 
+90 100 60
+출력: 최대값은 100 입니다.
+
+public class Today4 {
+
+	public static void main(String[] args) {
+		int n1 = 90;
+		int n2 = 100;
+		int n3 = 60;
+		
+		int max;
+		
+		max = (n1 > n2) ? n1 : n2;
+		max = (max > n3) ? max : n3;
+        
+        // max = (n1 > n2) ? (n1 > n3 ? n1 : n3) : (n2 > n3 ? n2 : n3);
+        //한 줄로 줄이는 것도 가능하다.
+
+		
+		System.out.println("최대값은 " + max + "입니다.");
+	
+	}  // 최대값은 100입니다.
+
+}
+
+
+10. int 변수 선언 후 임의로 값을 넣음.
+해당 값이 짝수 이면 "짝수 입니다" 출력
+해당 값이 홀수 이면 "홀수 입니다" 출력
+
+public class Today {
+
+	public static void main(String[] args) {
+		int num1 = 25;
+		int num2 = 322;
+		
+		int result1 = (num1 % 2);
+		int result2 = (num2 % 2);
+		
+		if(result1 == 0) {
+			System.out.println("짝수 입니다." + '\n');
+		}
+		else {
+			System.out.println("홀수 입니다." + '\n');
+		}  // 짝수 입니다.
+		
+		if(result2 != 0) {
+			System.out.println("홀수 입니다.");
+		}
+		else {
+			System.out.println("짝수 입니다.");
+		}  // 홀수 입니다.
+	}
