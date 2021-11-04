@@ -1,0 +1,160 @@
+1. 스택틱 변수의 다른 용어 3가지는?
+- 클래스 변수, 정적 변수, 
+
+2.스태틱 변수의 접근 방법은?
+- 클래스명.변수명
+
+3.스태틱 변수의 활용의 예를 드시오.
+ - 단순 기능 제공이 목적인 메소드들, 인스턴스 변수와 관련 지을 이유가 없는 메소드들은 static으로 선언하는 것이 좋다.
+ex) public static final double PI=3.14;
+
+4.스태틱 함수에 인스턴스 라면(변수, 함수)이 올수 없는 이유는?
+
+- 스태틱 함수는 우선적으로 메모리에 할당이 되기 때문에 아직 할당 되지 않은 인스턴스 변수는 스태틱 함수에 접근할 수 없다.
+
+5. 아래의 프로그램에서 기존에 값을 다이렉트로 넣었던 부분을 Scanner 로 입력 받아 처리 하시오.
+
+import java.util.Scanner;
+
+class Grade{
+	private int math;
+	private int science;
+	private int english;
+	
+	public Grade(int math, int science, int english) {
+		this.math = math;
+		this.science = science;
+		this.english = english;
+	}
+	public double average() {
+		int sum = math + science + english;
+		double avg = sum / 3.0;
+		return avg;
+	}
+	
+	public String getGrade() {
+		int sum = math + science + english;
+		double avg = sum / 3.0;
+		String str;
+		
+		if (avg >= 90) {
+			str = "수입니다.";
+		} else if (avg >= 80) {
+			str = "우입니다.";
+		} else if (avg >= 70) {
+			str = "미입니다.";
+		} else if (avg >= 60) {
+			str = "양입니다.";
+		} else {
+			str = "가입니다.";
+		}
+		return str;
+	}
+	
+}
+
+public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int math, science, english;
+		
+		System.out.print("수학 점수를 입력해주세요 : ");
+		math = sc.nextInt();
+		
+		System.out.print("과학 점수를 입력해주세요 : ");
+		science = sc.nextInt();
+		
+		System.out.print("영어 점수를 입력해주세요 : ");
+		english = sc.nextInt();
+		
+		Grade me = new Grade(math, science, english);
+		System.out.println("평균은 " + me.average());
+		System.out.println(me.getGrade());
+	}
+
+6.아래의 가위바위보 게임을 짜시오.
+
+  -난수 발생 함수가 필요 할것입니다. 아래의 메소드를 참고 해 주세요.
+ - (Math.random() * 3 + 1);
+
+출력=======================
+가위, 바위, 보 중 하나를 입력하세요.
+가위
+바위
+졌습니다.
+계속하시겠습니까?(Y/N)
+y
+가위, 바위, 보 중 하나를 입력하세요.
+보
+보
+비겼습니다.
+계속하시겠습니까?(Y/N)
+
+Scanner sc = new Scanner(System.in);
+		int random = (int)(Math.random() * 3 + 1);
+		
+		String com_rcp; //컴퓨터가 내는 수
+		String my_rcp; //내가 내는 수
+		char choice; // Y N 선택
+		
+		
+		while(true) {
+			System.out.println("==============");
+			System.out.println("가위, 바위, 보 중 하나를 입력하세요");
+			my_rpc = sc.next();
+			
+			switch (random) {
+			case 1:
+				com_rpc = "가위";
+				System.out.println(com_rpc);
+				
+				if(com_rpc.equals(my_rpc)) {
+					System.out.println("비겼습니다.");
+					break;
+					
+				} else if(my_rpc.equals("바위")) {
+					System.out.println("이겼습니다.");
+					break;
+					
+				} else {
+					System.out.println("졌습니다.");
+					break;
+				}
+				
+				
+			case 2:
+				com_rpc = "바위";
+				System.out.println(com_rpc);
+				
+				if(com_rpc.equals(my_rpc)) {
+					System.out.println("비겼습니다.");
+					break;
+					
+				} else if(my_rpc.equals("보")) {
+					System.out.println("이겼습니다.");
+					break;
+					
+				} else {
+					System.out.println("졌습니다.");
+					break;
+				}
+				
+			case 3:
+				com_rpc = "보";
+				System.out.println(com_rpc);
+				
+				if(com_rpc.equals(my_rpc)) {
+					System.out.println("비겼습니다.");
+					break;
+					
+				} else if(my_rpc.equals("가위")) {
+					System.out.println("이겼습니다.");
+					break;
+					
+				} else {
+					System.out.println("졌습니다.");
+					break;
+				}
+				
+			}
+			
+		}
